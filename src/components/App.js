@@ -1,31 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../styles/App.css';
 const App = () => {
-let [data, SetData] = useState({
-  text:'',
-  num:''
-})
   const handleInput = (event) =>{
-    {
    // use console.log
-    SetData({
-    ...data,
-      [e.target.name]:e.target.value
-    })
+   
+    event.target.type=='number'?console.log("Input in #num-input is " + event.target.value): console.log("Input in #text-input is " + event.target.value)
   }
-    console.log(data);
-  }
+
   // do not change id of input elements
   return (
     <div id="main">
       <label htmlFor='text-input'>Text Input:- </label>
-      <input name="text" onChange={handleInput} id="text-input" type={'text'} />
+      <input id="text-input" type={'text'} onChange={handleInput}/>
 
       <br/>
       <br/>
 
       <label htmlFor='num-input'>Number input</label>
-      <input name="num" onChange={handleInput} id="num-input"  type={'number'} />
+      <input id="num-input"  type={'number'} onChange={handleInput}/>
       <br/>
     </div>
   )
